@@ -4,7 +4,7 @@ import Footer from '@/components/layouts/footer/Footer'
 
 export default async function Home() {
   const data = await client.get({
-  endpoint: 'blogs',
+    endpoint: 'blogs',
   })
 
   return (

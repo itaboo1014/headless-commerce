@@ -7,32 +7,47 @@ export const client = createClient({
   apiKey: process.env.API_KEY || '',
 });
 
-// ブログ一覧を取得
-export const getList = async (queries?: MicroCMSQueriesMicroCMSQueries) => {
-  const listData = await client.getList<Blog>({
-    endpoint: "blogs",
-    queries,
-  });
+// type depthNumber = 0 | 1 | 2 | 3;
+// // export interface MicroCMSQueries {
+// export interface MicroCMSQueries {
+//   draftKey?: string;
+//   limit?: number;
+//   offset?: number;
+//   orders?: string;
+//   fields?: string | string[];
+//   q?: string;
+//   depth?: depthNumber;
+//   ids?: string | string[];
+//   filters?: string;
+//   richEditorFormat?: 'html' | 'object';
+// }
 
-  // データの取得が目視しやすいよう明示的に遅延効果を追加
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+// // ブログ一覧を取得
+// export const getList = async (queries?: MicroCMSQueries) => {
+//   const listData = await client.getList<Blog>({
+//     endpoint: "blogs",
+//     queries,
+//   });
 
-  return listData;
-};
+//   // データの取得が目視しやすいよう明示的に遅延効果を追加
+//   await new Promise((resolve) => setTimeout(resolve, 3000));
 
-// ブログの詳細を取得
-export const getDetail = async (
-  contentId: string,
-  queries?: MicroCMSQueries
-) => {
-  const detailData = await client.getListDetail<Blog>({
-    endpoint: "blogs",
-    contentId,
-    queries,
-  });
+//   return listData;
+// };
 
-  // データの取得が目視しやすいよう明示的に遅延効果を追加
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+// // ブログの詳細を取得
+// export const getDetail = async (
+//   contentId: string,
+//   queries?: MicroCMSQueries
+// ) => {
+//   const detailData = await client.getListDetail<Blog>({
+//     endpoint: "blogs",
+//     contentId,
+//     queries,
+//   });
 
-  return detailData;
-};
+//   // データの取得が目視しやすいよう明示的に遅延効果を追加
+//   await new Promise((resolve) => setTimeout(resolve, 3000));
+
+//   return detailData;
+// };
