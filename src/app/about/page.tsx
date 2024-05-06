@@ -2,16 +2,10 @@
 import Link from "next/link";
 import { client } from "../../libs/microcms";
 
-export default function Home({ blog }) {
+export default function Home() {
   return (
     <div>
-      <ul>
-        {blog.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
-          </li>
-        ))}
-      </ul>
+      blog
     </div>
   );
 }
